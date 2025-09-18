@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="p-3">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-6 mx-auto mb-3">
+        <h2>About GT Movies</h2>
+        <hr />
+        <p>GT Movies is a project by GT student Anshul Gokul.</p>
+        <p>Here, you can browse a carefully curated collection of films, from the latest blockbusters 
+          to timeless classics. The site is designed for simplicity and speed — making it easy to 
+          explore movies, add them to your cart, and keep track of your orders.</p>
+        <p>GT Movies is more than just a demo store — it’s a showcase of how modern web frameworks 
+          can bring creative ideas to life, while celebrating the cinematic experience.</p>
+      </div>
+      <div class="col-md-6 mx-auto mb-3 text-center">
+        <img src="{% static 'img/about.jpg' %}" class="max-width-100" alt="about" />
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

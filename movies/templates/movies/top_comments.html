@@ -1,0 +1,11 @@
+<h1>Top Movie Comments</h1>
+<ul>
+  {% for comment in top_comments %}
+    <li>
+      <strong>{{ comment.user.username }}</strong> on <em>{{ comment.movie.name }}</em>:<br>
+      "{{ comment.comment }}"
+    </li>
+  {% empty %}
+    <li>No comments yet.</li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-3 mt-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow p-3 mb-4 rounded">
+          <div class="card-body">
+            <h2 class="text-center text-warning">Create Your GT Movies Account</h2>
+            <hr />
+            <form method="POST">
+              {% csrf_token %}
+              {{ template_data.form.as_p }}
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-warning text-dark fw-bold">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+            <div class="text-center mt-4">
+              <small class="text-muted">Join GT Movies • Brought to you by <strong>Anshul Gokul</strong></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
