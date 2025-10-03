@@ -10,4 +10,5 @@ urlpatterns = [
     path('top-comments/', views.top_comments, name='top_comments'),
     path('likes/', views.likes, name='likes'),
     path('filler/', views.filler, name='filler'),
+    path('filler/vote/<int:petition_id>/', views.vote_petition, name='vote_petition'),  # 🔹 add this
 ]

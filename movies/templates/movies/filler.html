@@ -2,7 +2,42 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1>FILLER</h1>
-    <p>This is a blank page for future content.</p>
+    <h1>Movie Petitions</h1>
+    <p>Suggest a movie to be added to the catalog and vote on other users' suggestions.</p>
+
+    <!-- Petition Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">Start a Petition</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit Petition</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Petition List -->
+    <h3>Current Petitions</h3>
+    <ul class="list-group">
+        {% for petition in petitions %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ petition.title }}</strong>
+                    <br>
+                    <small>By {{ petition.created_by.username }} on {{ petition.created_at|date:"M d, Y H:i" }}</small>
+                </div>
+                <div>
+                    <span class="badge bg-secondary me-2">{{ petition.vote_count }} votes</span>
+                    <form action="{% url 'vote_petition' petition.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-success">Vote</button>
+                    </form>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No petitions yet. Be the first to add one!</li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
